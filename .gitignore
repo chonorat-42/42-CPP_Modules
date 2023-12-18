@@ -1,0 +1,11 @@
+#Objects
+*.o
+
+#Executables
+megaphone
+
+#DS_STORE
+.DS_STORE
+
+#VS_CODE
+.vscode
