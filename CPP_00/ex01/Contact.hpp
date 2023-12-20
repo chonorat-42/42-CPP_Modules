@@ -6,11 +6,14 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:36 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 16:29:25 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:06:39 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <string>
 
 class	Contact
 {
@@ -36,3 +39,5 @@ class	Contact
 		std::string	phoneNumber;
 		std::string	secret;
 };
+
+#endif

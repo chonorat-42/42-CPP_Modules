@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:17:38 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 16:36:46 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/20 23:55:13 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,28 @@ void	PhoneBook::addContact()
 		index = 0;
 	std::cout << "FIRST NAME : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	contact[index].addFirstName(input);
 	std::cout << "LAST NAME : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	contact[index].addLastName(input);
 	std::cout << "NICK NAME : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	contact[index].addNickName(input);
 	std::cout << "PHONE NUMBER : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	contact[index].addPhoneNumber(input);
 	std::cout << "DARKEST SECRET : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	contact[index].addSecret(input);
 	contact[index].addIndex(index + 1);
 	index++;
@@ -84,6 +94,8 @@ void	PhoneBook::searchContact()
 	}
 	std::cout << "ENTER INDEX : ";
 	std::cin >> input;
+	if (std::cin.eof())
+		std::exit(EXIT_SUCCESS);
 	if (input.length() == 1 && input >= "1" && input <= "8")
 	{
 		if (contact[std::stoi(input) - 1].getFirstName().length() == 0)

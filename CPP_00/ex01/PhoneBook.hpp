@@ -6,12 +6,15 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:08 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 16:30:11 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:06:44 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+# include "Contact.hpp"
+# include <iostream>
 
 class PhoneBook
 {
@@ -24,3 +27,5 @@ class PhoneBook
 		int		index;
 		Contact	contact[8];
 };
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:24:00 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 16:28:23 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/20 23:51:37 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	main(void)
 	{
 		std::cout << "ENTER COMMAND : ";
 		std::cin >> command;
-		if (command == "ADD")
+		if (std::cin.eof())
+			break;
+		else if (command == "ADD")
 			directory.addContact();
 		else if (command == "SEARCH")
 			directory.searchContact();
