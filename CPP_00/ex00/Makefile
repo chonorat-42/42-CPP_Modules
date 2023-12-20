@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
-#    Updated: 2023/12/18 15:06:45 by chonorat         ###   ########.fr        #
+#    Updated: 2023/12/19 15:54:58 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 	$(PRINT) "${_BOLD}${_GREEN}$(NAME) done.\a${_END}"
 
-Objects/%.o: %.cpp Makefile $(HEADER)
+Objects/%.o: %.cpp Makefile
 	$(DIR) Objects
 	$(PRINT) "Compiling ${_BOLD}$<$(_END)..."
 	$(CC) -c $(C++FLAGS) $< -o $@
