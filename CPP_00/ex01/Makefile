@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
-#    Updated: 2023/12/21 17:04:14 by chonorat         ###   ########.fr        #
+#    Updated: 2023/12/21 18:31:04 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ PRINT = @echo
 HEADER = PhoneBook.hpp\
 		Contact.hpp
 FILES = PhoneBook\
+		Contact\
 		main
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 

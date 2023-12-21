@@ -6,11 +6,25 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:24:00 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/21 17:59:50 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:21:29 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+std::string	to_string(int number)
+{
+	char		digit;
+	std::string	result;
+
+	while (number > 0)
+	{
+		digit = number % 10 + '0';
+		result += digit;
+		number /= 10;
+	}
+	return (result);
+}
 
 int	main(void)
 {

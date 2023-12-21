@@ -6,26 +6,12 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:17:38 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/21 18:00:38 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:53:10 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
-
-std::string	to_string(int number)
-{
-	char		digit;
-	std::string	result;
-
-	while (number > 0)
-	{
-		digit = number % 10 + '0';
-		result += digit;
-		number /= 10;
-	}
-	return (result);
-}
 
 int	PhoneBook::addContact()
 {
@@ -107,18 +93,29 @@ int	PhoneBook::searchContact()
 		std::cout << std::endl;
 		index++;
 	}
-	std::cout << "ENTER INDEX : ";
-	std::cin >> index;
-	if (std::cin.eof())
-		return (0);
-	if (index >= 1 && index <= 8)
+	while (true)
 	{
-		if (contact[index - 1].getFirstName().length() == 0)
-			std::cout << "NO CONTACT FOUND" << std::endl;
+		std::cout << "ENTER INDEX : ";
+		std::cin >> index;
+		if (std::cin.eof())
+			return (0);
+		if (index < 1 || index > 8)
+		{
+			std::cin.clear();
+			std::cin.ignore();
+		}
+		if (index >= 1 && index <= 8)
+		{
+			if (contact[index - 1].getFirstName().length() == 0)
+				std::cout << "NO CONTACT FOUND" << std::endl;
+			else
+			{
+				showContact(contact[index - 1]);
+				return (1);
+			}
+		}
 		else
-			showContact(contact[index - 1]);
+			std::cout << "ENTER INDEX BETWEEN 1 AND 8" << std::endl;
 	}
-	else
-		std::cout << "ENTER INDEX BETWEEN 1 AND 8" << std::endl;
 	return (1);
 }
