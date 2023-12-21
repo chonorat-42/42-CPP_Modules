@@ -6,14 +6,28 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:17:38 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 23:55:13 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:00:38 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-void	PhoneBook::addContact()
+std::string	to_string(int number)
+{
+	char		digit;
+	std::string	result;
+
+	while (number > 0)
+	{
+		digit = number % 10 + '0';
+		result += digit;
+		number /= 10;
+	}
+	return (result);
+}
+
+int	PhoneBook::addContact()
 {
 	std::string	input;
 
@@ -22,30 +36,31 @@ void	PhoneBook::addContact()
 	std::cout << "FIRST NAME : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
+		return (0);
 	contact[index].addFirstName(input);
 	std::cout << "LAST NAME : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
+		return (0);
 	contact[index].addLastName(input);
 	std::cout << "NICK NAME : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
+		return (0);
 	contact[index].addNickName(input);
 	std::cout << "PHONE NUMBER : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
+		return (0);
 	contact[index].addPhoneNumber(input);
 	std::cout << "DARKEST SECRET : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
+		return (0);
 	contact[index].addSecret(input);
 	contact[index].addIndex(index + 1);
 	index++;
+	return (1);
 }
 
 void	printColumn(int count, std::string output)
@@ -72,7 +87,7 @@ void	showContact(Contact contact)
 	std::cout << "DARKEST SECRET : " << contact.getSecret() << std::endl;
 }
 
-void	PhoneBook::searchContact()
+int	PhoneBook::searchContact()
 {
 	int			index = 0;
 	std::string	input;
@@ -80,7 +95,7 @@ void	PhoneBook::searchContact()
 	if (contact[0].getFirstName().length() == 0)
 	{
 		std::cout << "NO CONTACT" << std::endl;
-		return;
+		return (1);
 	}
 	while (index < 8 && contact[index].getFirstName().length())
 	{
@@ -93,16 +108,17 @@ void	PhoneBook::searchContact()
 		index++;
 	}
 	std::cout << "ENTER INDEX : ";
-	std::cin >> input;
+	std::cin >> index;
 	if (std::cin.eof())
-		std::exit(EXIT_SUCCESS);
-	if (input.length() == 1 && input >= "1" && input <= "8")
+		return (0);
+	if (index >= 1 && index <= 8)
 	{
-		if (contact[std::stoi(input) - 1].getFirstName().length() == 0)
+		if (contact[index - 1].getFirstName().length() == 0)
 			std::cout << "NO CONTACT FOUND" << std::endl;
 		else
-			showContact(contact[std::stoi(input) - 1]);
+			showContact(contact[index - 1]);
 	}
 	else
 		std::cout << "ENTER INDEX BETWEEN 1 AND 8" << std::endl;
+	return (1);
 }

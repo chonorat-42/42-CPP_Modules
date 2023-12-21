@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:08 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 17:06:44 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:58:45 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class PhoneBook
 {
 	public:
 		PhoneBook(){index = 0;};
-		void addContact();
-		void searchContact();
+		int addContact();
+		int searchContact();
 
 	private:
 		int		index;

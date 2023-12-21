@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:36 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/20 17:06:39 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:56:55 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_HPP
 
 # include <string>
+
+std::string	to_string(int number);
 
 class	Contact
 {
@@ -24,7 +26,7 @@ class	Contact
 		void addNickName(std::string input) {nickName = input;};
 		void addPhoneNumber(std::string input) {phoneNumber = input;};
 		void addSecret(std::string input) {secret = input;};
-		std::string	getIndex() {return (std::to_string(index));};
+		std::string	getIndex() {return (to_string(index));};
 		std::string getFirstName() {return (firstName);};
 		std::string getLastName() {return (lastName);};
 		std::string getNickName() {return (nickName);};

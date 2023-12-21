@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:17:37 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/18 14:45:04 by chonorat         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:43:55 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	main(int argc, char *argv[])
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	return (EXIT_SUCCESS);
+	return (0);
 }
