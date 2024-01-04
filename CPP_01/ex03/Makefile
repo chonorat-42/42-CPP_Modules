@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
-#    Updated: 2023/12/22 14:30:07 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/04 01:19:33 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = human
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98 -ggdb3
+C++FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
