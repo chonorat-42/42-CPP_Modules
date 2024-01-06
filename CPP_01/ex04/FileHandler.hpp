@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 16:26:47 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/04 01:13:08 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:53:33 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@
 class	FileHandler
 {
 	public:
-		int	getData(char *argv[]);
-		int	openFile();
+		int		getData(char *argv[]);
+		int		openFile();
+		void	replaceLine(std::string line);
 
 	private:
-		std::string	fileName;
-		std::string	newFile;
-		std::string	s1;
-		std::string	s2;
+		std::string		fileName;
+		std::string		newFile;
+		std::string		s1;
+		std::string		s2;
+		std::ifstream	infile;
+		std::ofstream	outfile;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 16:35:45 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/04 01:13:06 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:30:18 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,46 @@ int	FileHandler::getData(char *argv[])
 	return (1);
 }
 
-int	FileHandler::openFile()
+void	FileHandler::replaceLine(std::string line)
 {
-	std::ifstream	file(fileName);
-	std::ofstream	newFile(this->newFile);
-	std::string		line;
+	size_t	index = 0;
+	size_t	pos = 0;
 
-	if (file.is_open())
+	while (index < line.size())
 	{
-		if (newFile.is_open())
+		if ((pos = line.find(s1, index)) != std::string::npos)
 		{
-			while (std::getline(file, line))
-			{
-				std::cout << line.find('\0') << std::endl;
-				if (line == s1 && line.find("\n") != std::string::npos)
-					newFile << s2 << std::endl;
-				else if (line == s1)
-					newFile << s2;
-				else if (line.find("\n") != std::string::npos)
-					newFile << line << std::endl;
-				else
-					newFile << line;
-			}
-			file.close();
-			newFile.close();
+			if (pos > index)
+				outfile << line.substr(index, pos - index);
+			outfile << s2;
+			index = pos + s1.size();
 		}
 		else
 		{
-			file.close();
-			return (0);
+			outfile << line.substr(index, line.size() - index);
+			break;
 		}
+	}
+	outfile << std::endl;
+}
+
+int	FileHandler::openFile()
+{
+	std::string	line;
+
+	infile.open(fileName, std::ios::in);
+	if (infile.is_open())
+	{
+		outfile.open(newFile, std::ios::out | std::ios::trunc);
+		if (outfile.is_open())
+		{
+			while (std::getline(infile, line))
+				replaceLine(line);
+			infile.close();
+			outfile.close();
+		}
+		else
+			return (infile.close(), 0);
 	}
 	else
 		return (0);
