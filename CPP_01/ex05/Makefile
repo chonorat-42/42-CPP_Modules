@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = harl
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo

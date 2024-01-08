@@ -8,9 +8,12 @@ zombie
 horde
 human
 replace
+harl
 
 #DS_STORE
 .DS_Store
 
 #VS_CODE
 .vscode
+
+.idea

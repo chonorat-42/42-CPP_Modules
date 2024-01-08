@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 12:51:22 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/08 15:35:53 by chonorat         ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include "Harl.hpp"
 
@@ -22,8 +12,8 @@ Harl::Harl()
 
 void	Harl::complain(std::string level)
 {
-		std::map<std::string, void(Harl::*)()>::iterator it = map.find(level);
-		(this->*(it->second))();
+	const std::map<std::string, void(Harl::*)()>::iterator it = map.find(level);
+	(this->*(it->second))();
 }
 
 void	Harl::debug() {std::cout << "debug" << std::endl;}

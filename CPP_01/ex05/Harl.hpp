@@ -22,7 +22,7 @@ class Harl
 	public:
 		Harl();
 		void complain(std::string level);
-	
+
 	private:
 		std::map<std::string, void(Harl::*)()> map;
 		void 	debug();
