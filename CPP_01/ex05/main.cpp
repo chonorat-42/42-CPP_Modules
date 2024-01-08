@@ -20,4 +20,6 @@ int	main()
 	test.complain("error");
 	test.complain("debug");
 	test.complain("info");
+	test.complain("Tchoupie");
+	return (0);
 }

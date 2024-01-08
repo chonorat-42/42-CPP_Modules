@@ -13,7 +13,8 @@ Harl::Harl()
 void	Harl::complain(std::string level)
 {
 	const std::map<std::string, void(Harl::*)()>::iterator it = map.find(level);
-	(this->*(it->second))();
+	if (it != map.end())
+		(this->*(it->second))();
 }
 
 void	Harl::debug() {std::cout << "debug" << std::endl;}
