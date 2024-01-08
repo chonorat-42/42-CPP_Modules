@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 16:35:45 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/06 16:30:18 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/08 12:42:41 by chonorat         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int	FileHandler::openFile()
 {
 	std::string	line;
 
-	infile.open(fileName, std::ios::in);
+	infile.open(fileName.c_str(), std::ios::in);
 	if (infile.is_open())
 	{
-		outfile.open(newFile, std::ios::out | std::ios::trunc);
+		outfile.open(newFile.c_str(), std::ios::out | std::ios::trunc);
 		if (outfile.is_open())
 		{
 			while (std::getline(infile, line))
