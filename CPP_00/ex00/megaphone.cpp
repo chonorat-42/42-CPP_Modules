@@ -12,14 +12,17 @@
 
 #include <iostream>
 
-int	main(int argc, char *argv[])
+int	main(const int argc, const char *argv[])
 {
+	std::string	str;
+
 	if (argc > 1)
 	{
 		for (int index = 1; index < argc; index++)
 		{
-			for (int index_j = 0; argv[index][index_j]; index_j++)
-				std::cout << (char)std::toupper(argv[index][index_j]);
+			str = argv[index];
+			for (unsigned long index_j = 0; index_j < str.length(); index_j++)
+				std::cout << static_cast<char>(std::toupper(str[index_j]));
 		}
 		std::cout << std::endl;
 	}
