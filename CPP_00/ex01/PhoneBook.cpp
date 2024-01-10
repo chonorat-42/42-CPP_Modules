@@ -6,35 +6,16 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:17:38 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/10 14:08:21 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:21:08 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+static bool	onlyWs(const std::string& str);
+static bool	validInput(const std::string& str);
+
 PhoneBook::PhoneBook() {index = 0;}
-
-static bool	onlyWs(const std::string& str)
-{
-	for (size_t index = 0; index < str.length(); index++)
-	{
-		if (str[index] != ' ')
-			return (false);
-	}
-	return (true);
-}
-
-static bool	validInput(const std::string& str)
-{
-	if (str.empty() || onlyWs(str))
-		return (false);
-	for (size_t index = 0; index < str.length(); index++)
-	{
-		if (!isprint(str[index]))
-			return (false);
-	}
-	return (true);
-}
 
 int	PhoneBook::addContact()
 {
@@ -162,4 +143,26 @@ int	PhoneBook::searchContact()
 			std::cout << "ENTER INDEX BETWEEN 1 AND 8" << std::endl;
 	}
 	return (1);
+}
+
+static bool	onlyWs(const std::string& str)
+{
+	for (size_t index = 0; index < str.length(); index++)
+	{
+		if (str[index] != ' ')
+			return (false);
+	}
+	return (true);
+}
+
+static bool	validInput(const std::string& str)
+{
+	if (str.empty() || onlyWs(str))
+		return (false);
+	for (size_t index = 0; index < str.length(); index++)
+	{
+		if (!isprint(str[index]))
+			return (false);
+	}
+	return (true);
 }
