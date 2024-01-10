@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:08 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/21 17:58:45 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:02:57 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-# include <iostream>
 
 class PhoneBook
 {
 	public:
-		PhoneBook(){index = 0;};
+		PhoneBook();
 		int addContact();
 		int searchContact();
 
 	private:
 		int		index;
 		Contact	contact[8];
+		void	contactPreview(int index);
+		static void	showContact(Contact contact);
 };
 
 #endif

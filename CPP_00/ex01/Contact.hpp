@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:34:36 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/21 18:30:42 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:18:58 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_HPP
 
 # include <string>
+# include <iostream>
+# include <limits>
 
 std::string	to_string(int number);
 

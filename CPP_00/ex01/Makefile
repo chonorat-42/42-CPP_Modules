@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
-#    Updated: 2023/12/21 18:31:04 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/10 12:26:58 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = phonebook
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
