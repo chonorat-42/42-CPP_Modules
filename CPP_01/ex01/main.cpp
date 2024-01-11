@@ -14,9 +14,7 @@
 
 int	main()
 {
-	Zombie	*horde;
-
-	horde = zombieHorde(5, "Zomblard");
+	Zombie	*horde = zombieHorde(5, "Zomblard");
 	if (!horde)
 		return (1);
 	for (int index = 0; index < 5; index++)

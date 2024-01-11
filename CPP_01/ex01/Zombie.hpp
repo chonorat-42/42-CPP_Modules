@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:01:26 by chonorat          #+#    #+#             */
-/*   Updated: 2023/12/22 00:50:44 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:37:18 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Zombie
 	public:
 		~Zombie();
 		void	announce();
-		void	nameZombie(std::string name);
+		void	nameZombie(const std::string& name);
 
 	private:
 		std::string	name;

@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
-#    Updated: 2023/12/22 01:44:21 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/11 12:42:53 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = ex02
+NAME = brain
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = @rm -rf
