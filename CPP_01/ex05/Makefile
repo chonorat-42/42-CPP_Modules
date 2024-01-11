@@ -5,6 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/11 16:12:44 by chonorat          #+#    #+#              #
+#    Updated: 2024/01/11 16:12:44 by chonorat         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 13:10:41 by chonorat          #+#    #+#              #
 #    Updated: 2024/01/08 12:51:03 by chonorat         ###   ########lyon.fr    #
 #                                                                              #
@@ -21,7 +33,7 @@ _BOLD = \033[1m
 
 NAME = harl
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo

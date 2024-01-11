@@ -5,6 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/11 16:14:59 by chonorat          #+#    #+#             */
+/*   Updated: 2024/01/11 16:14:59 by chonorat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:49:30 by chonorat          #+#    #+#             */
 /*   Updated: 2024/01/08 15:31:50 by chonorat         ###   ########lyon.fr   */
 /*                                                                            */
@@ -16,10 +28,10 @@ int	main()
 {
 	Harl	test;
 
-	test.complain("warning");
-	test.complain("error");
-	test.complain("debug");
-	test.complain("info");
+	test.complain("WARNING");
+	test.complain("ERROR");
+	test.complain("DEBUG");
+	test.complain("INFO");
 	test.complain("Tchoupie");
 	return (0);
 }

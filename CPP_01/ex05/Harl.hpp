@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 12:51:15 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/08 14:53:47 by chonorat         ###   ########lyon.fr   */
+/*   Created: 2024/01/11 13:07:03 by chonorat          #+#    #+#             */
+/*   Updated: 2024/01/11 15:29:51 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ class Harl
 		void complain(std::string level);
 
 	private:
-		std::map<std::string, void(Harl::*)()> map;
-		void 	debug();
-		void	info();
-		void	warning();
-		void	error();
+		void		(Harl::*functionArr[4])();
+		std::string	level[4];
+		void		debug();
+		void		info();
+		void		warning();
+		void		error();
 };
 
 #endif
