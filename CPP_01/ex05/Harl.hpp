@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:07:03 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/11 15:29:51 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:19:58 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <map>
 
 class Harl
 {
