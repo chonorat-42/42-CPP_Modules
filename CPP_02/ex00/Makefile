@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:45:18 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/09 15:46:12 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/12 17:42:36 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = harl
+NAME = canon
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf

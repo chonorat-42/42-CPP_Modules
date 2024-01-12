@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:46:38 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/11 18:09:27 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:39:51 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class Fixed
 		Fixed& operator = (const Fixed& other);
 		~Fixed();
 		int		getRawBits()const;
-		void	setRawBits()const;
+		void	setRawBits(int const raw);
 
 	private:
 		int	integer;
-		const static int	bits;
+		const static int	bits = 8;
 };
 
 #endif //FIXED_HPP
