@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -31,5 +32,7 @@ class Fixed
 		int		integer;
 		static const int bits = 8;
 };
+
+std::ostream& operator << (std::ostream& os, const Fixed& other);
 
 #endif //FIXED_HPP

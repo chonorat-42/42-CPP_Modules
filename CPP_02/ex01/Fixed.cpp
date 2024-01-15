@@ -17,13 +17,13 @@ Fixed::Fixed() {std::cout << "Default constructor called" << std::endl;}
 Fixed::Fixed(const int integer)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->integer = integer * 256;
+	this->integer = roundf(integer * (1 << this->bits));
 }
 
 Fixed::Fixed(const float floater)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->integer = floater * 256;
+	this->integer = roundf(floater * (1 << this->bits));;
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -40,8 +40,14 @@ Fixed&	Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
+std::ostream& operator << (std::ostream& os, const Fixed& other)
+{
+	os << other.toFloat();
+	return (os);
+}
+
 Fixed::~Fixed() {std::cout << "Destructor called" << std::endl;}
 
-float	Fixed::toFloat() const {return (this->integer * 256);}
+float	Fixed::toFloat() const {return (this->integer / 256.0);}
 
 int Fixed::toInt() const {return (this->integer / 256);}
