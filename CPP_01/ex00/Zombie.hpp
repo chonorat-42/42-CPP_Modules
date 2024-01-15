@@ -19,9 +19,9 @@
 class	Zombie
 {
 	public:
+		explicit Zombie(const std::string& name);
 		~Zombie();
 		void	announce();
-		void	nameZombie(const std::string& name);
 
 	private:
 		std::string	name;
