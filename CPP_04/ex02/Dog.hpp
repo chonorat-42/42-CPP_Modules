@@ -6,16 +6,16 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:27:40 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 16:43:38 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:40:47 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AbstractAnimal.hpp"
 
-class Dog : public Animal
+class Dog : public AbstractAnimal
 {
 	public:
 		Dog();
@@ -23,7 +23,8 @@ class Dog : public Animal
 		Dog &operator=(const Dog &other);
 		~Dog();
 		void makeSound()const;
-		void setBrain();
+		void setBrain(int location, const std::string& idea)const;
+		std::string getBrain(int location)const;
 
 	private:
 		Brain *brain;

@@ -6,14 +6,14 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:44:43 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 16:22:46 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:15:08 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#include "Animal.hpp"
+#include "AbstractAnimal.hpp"
 
 class Brain
 {

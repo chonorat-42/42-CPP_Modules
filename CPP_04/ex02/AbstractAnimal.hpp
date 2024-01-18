@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AbstractAnimal.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 12:36:58 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 18:00:31 by chonorat         ###   ########.fr       */
+/*   Created: 2024/01/18 14:13:54 by chonorat          #+#    #+#             */
+/*   Updated: 2024/01/18 14:13:54 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <string>
 # include "Brain.hpp"
 
-class Animal
+class AbstractAnimal
 {
 	public:
-		Animal();
-		Animal(const Animal &other);
-		Animal &operator=(const Animal &other);
-		virtual ~Animal();
+		AbstractAnimal();
+		AbstractAnimal(const AbstractAnimal &other);
+		AbstractAnimal &operator=(const AbstractAnimal &other);
+		virtual ~AbstractAnimal();
 		virtual void	makeSound()const = 0;
 		std::string		getType()const;
 

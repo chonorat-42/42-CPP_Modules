@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:57:23 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 16:29:05 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:29:23 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Brain::Brain(const Brain &other)
 Brain &Brain::operator=(const Brain &other)
 {
 	for (int index = 0; index < 100; index++)
-		this->ideas[index] = other.ideas[index];
+			this->setIdea(index, other.ideas[index]);
 	return (*this);
 }
 

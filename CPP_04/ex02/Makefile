@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/17 15:43:40 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/18 14:14:27 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,20 +19,20 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = Animal
+NAME = AbstractAnimal
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
-HEADER = Animal.hpp\
+HEADER = AbstractAnimal.hpp\
 		Cat.hpp\
 		Dog.hpp\
 		WrongAnimal.hpp\
 		WrongCat.hpp\
 		Brain.hpp
 FILES = main\
-		Animal\
+		AbstractAnimal\
 		Cat\
 		Dog\
 		WrongAnimal\

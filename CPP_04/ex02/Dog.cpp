@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:26:45 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 16:38:20 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:40:28 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ Dog::Dog()
 	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog &other) {*this = other;}
+Dog::Dog(const Dog &other)
+{
+	this->brain = new Brain();
+	*this = other;
+}
 
 Dog &Dog::operator=(const Dog &other)
 {
 	this->type = other.type;
+	*this->brain = *other.brain;
 	return (*this);
 }
 
@@ -35,8 +40,6 @@ Dog::~Dog()
 
 void Dog::makeSound()const {std::cout << "Wouf" << std::endl;}
 
-void Dog::setBrain()
-{
-	for (int index = 0; index < 100; index++)
-		this->brain->setIdea(index, "Eat");
-}
+void Dog::setBrain(const int location, const std::string& idea)const {this->brain->setIdea(location, idea);}
+
+std::string Dog::getBrain(const int location)const {return this->brain->getIdea(location);}

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AbstractAnimal.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 12:36:49 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 15:05:08 by chonorat         ###   ########.fr       */
+/*   Created: 2024/01/18 14:13:47 by chonorat          #+#    #+#             */
+/*   Updated: 2024/01/18 14:13:47 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AbstractAnimal.hpp"
 
-Animal::Animal() {std::cout << "Animal created" << std::endl;}
+AbstractAnimal::AbstractAnimal() {std::cout << "Animal created" << std::endl;}
 
-Animal::Animal(const Animal &other) {*this = other;}
+AbstractAnimal::AbstractAnimal(const AbstractAnimal &other) {*this = other;}
 
-Animal &Animal::operator=(const Animal &other)
+AbstractAnimal &AbstractAnimal::operator=(const AbstractAnimal &other)
 {
 	this->type = other.type;
 	return (*this);
 }
 
-Animal::~Animal() {std::cout << "Animal destructed" << std::endl;}
+AbstractAnimal::~AbstractAnimal() {std::cout << "Animal destructed" << std::endl;}
 
-std::string Animal::getType()const {return (this->type);}
+std::string AbstractAnimal::getType()const {return (this->type);}

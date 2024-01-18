@@ -6,16 +6,16 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 12:56:44 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/17 16:43:27 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:20:07 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+# include "AbstractAnimal.hpp"
 
-class Cat : public Animal
+class Cat : public AbstractAnimal
 {
 	public:
 		Cat();
@@ -23,7 +23,8 @@ class Cat : public Animal
 		Cat &operator=(const Cat &other);
 		~Cat();
 		void makeSound()const;
-		void setBrain();
+		void setBrain(int location, const std::string& idea)const;
+		std::string getBrain(int location)const;
 
 	private:
 		Brain *brain;
