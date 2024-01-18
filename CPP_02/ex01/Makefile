@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = canon
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+C++FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo

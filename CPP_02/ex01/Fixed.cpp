@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:06:23 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/12 19:08:31 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:21:56 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ std::ostream& operator << (std::ostream& os, const Fixed& other)
 
 Fixed::~Fixed() {std::cout << "Destructor called" << std::endl;}
 
-float	Fixed::toFloat() const {return (this->integer / 256.0);}
+float	Fixed::toFloat() const {return (this->integer / static_cast<float>(1 << this->bits));}
 
-int Fixed::toInt() const {return (this->integer / 256);}
+int Fixed::toInt() const {return (this->integer / (1 << this->bits));}

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:34:12 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/16 15:51:21 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:38:08 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main()
 {
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Fixed c(10);
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
@@ -23,10 +24,13 @@ int main()
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
+	std::cout << --c << std::endl;
+	std::cout << c-- << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
 	std::cout << a + b << std::endl;
 	std::cout << a - b << std::endl;
 	std::cout << a * b << std::endl;
+	std::cout << a / b << std::endl;
 	if (b > a)
 		std::cout << "b is greater than a" << std::endl;
 	if (a < b)

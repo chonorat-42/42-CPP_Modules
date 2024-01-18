@@ -28,9 +28,9 @@ Fixed::Fixed(const Fixed& other) {*this = other;}
 
 Fixed::~Fixed() {}
 
-float	Fixed::toFloat() const {return (this->integer / 256.0);}
+float	Fixed::toFloat() const {return (this->integer / static_cast<float>(1 << this->bits));}
 
-int Fixed::toInt() const {return (this->integer / 256);}
+int Fixed::toInt() const {return (this->integer / (1 << this->bits));}
 
 Fixed&	Fixed::operator =(const Fixed& other)
 {
