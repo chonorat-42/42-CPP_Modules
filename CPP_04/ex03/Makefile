@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/18 17:25:43 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/19 14:37:45 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,15 @@ HEADER = AMateria.hpp\
 		Ice.hpp\
 		Cure.hpp\
 		ICharacter.hpp\
-		IMateriaSource.hpp
+		Character.hpp\
+		IMateriaSource.hpp\
+		MateriaSource.hpp
 FILES = main\
 		AMateria\
 		Ice\
 		Cure\
-		IMateriaSource
+		Character\
+		MateriaSource
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 
 $(NAME): $(OBJS)

@@ -6,14 +6,14 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:05:16 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/18 17:12:42 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:54:31 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#pragma once
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
@@ -22,7 +22,6 @@ class Ice : public AMateria
 		Ice(const Ice &other);
 		Ice &operator=(const Ice &other);
 		virtual ~Ice();
+		void use(ICharacter &target);
 		AMateria *clone()const;
 };
-
-#endif //ICE_HPP

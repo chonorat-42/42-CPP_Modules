@@ -6,26 +6,21 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:25:57 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/18 17:26:12 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:51:46 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
+#pragma once
 
-# include "ICharacter.hpp
+#include "AMateria.hpp"
 
 class IMateriaSource
 {
 	public:
 		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
+		virtual void learnMateria(AMateria *materia) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 
 	protected:
-		AMateria *_inventory[4];
+		AMateria *_stock[4];
 };
-
-
-
-#endif //IMATERIASOURCE_HPP

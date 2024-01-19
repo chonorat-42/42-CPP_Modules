@@ -6,14 +6,13 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:23:11 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/18 17:16:26 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:50:38 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#pragma once
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
 class ICharacter
 {
@@ -28,5 +27,3 @@ class ICharacter
 		std::string _name;
 		AMateria *_inventory[4];
 };
-
-#endif //ICHARACTER_HPP
