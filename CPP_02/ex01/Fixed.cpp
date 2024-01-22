@@ -34,9 +34,9 @@ Fixed::Fixed(const Fixed& other)
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->integer = other.integer;
-	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 

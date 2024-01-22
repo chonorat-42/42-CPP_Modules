@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:39:51 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/16 15:43:27 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:24:02 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ class Fixed
 		Fixed	operator ++(int);
 		Fixed	&operator --();
 		Fixed	operator --(int);
-		Fixed	&operator +(const Fixed &other);
-		Fixed	&operator -(const Fixed &other);
-		Fixed	&operator *(const Fixed &other);
-		Fixed	&operator /(const Fixed &other);
+		Fixed	operator +(const Fixed &other)const;
+		Fixed	operator -(const Fixed &other)const;
+		Fixed	operator *(const Fixed &other)const;
+		Fixed	operator /(const Fixed &other)const;
 		bool	operator >(const Fixed &other)const;
 		bool	operator <(const Fixed &other)const;
 		bool	operator >=(const Fixed &other)const;

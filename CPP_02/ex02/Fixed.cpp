@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:34:42 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/16 15:44:55 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:30:50 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ Fixed::Fixed() {this->integer = 0;}
 
 Fixed::Fixed(const int integer)
 {
-	this->integer = roundf(integer * (1 << this->bits));
+	this->integer = roundf(static_cast<float>(integer) * (1 << this->bits));
 }
 
 Fixed::Fixed(const float floater)
 {
-	this->integer = roundf(floater * (1 << this->bits));;
+	this->integer = roundf(floater * static_cast<float>(1 << this->bits));;
 }
 
 Fixed::Fixed(const Fixed& other) {*this = other;}
@@ -73,27 +73,28 @@ Fixed Fixed::operator --(int)
 	return (temp);
 }
 
-Fixed	&Fixed::operator +(const Fixed &other)
+Fixed	Fixed::operator +(const Fixed &other)const
 {
-	this->integer += other.integer;
-	return (*this);
+	return (Fixed(this->toFloat() + other.toFloat()));
 }
 
-Fixed	&Fixed::operator -(const Fixed &other)
+Fixed	Fixed::operator -(const Fixed &other)const
 {
-	this->integer -= other.integer;
-	return (*this);
+	return (Fixed(this->toFloat() - other.toFloat()));
 }
 
-Fixed	&Fixed::operator *(const Fixed &other)
+Fixed	Fixed::operator *(const Fixed &other)const
 {
-	this->integer *= other.toFloat();
-	return (*this);
+	return (Fixed(this->toFloat() * other.toFloat()));
 }
-Fixed	&Fixed::operator /(const Fixed &other)
+Fixed	Fixed::operator /(const Fixed &other)const
 {
-	this->integer /= other.toFloat();
-	return (*this);
+	if (other.toFloat() == 0 || this->toFloat() == 0)
+	{
+		std::cerr << "Division by 0 is not possible" << std::endl;
+		return (Fixed(0));
+	}
+	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 Fixed	&Fixed::min(Fixed &first, Fixed &second)
