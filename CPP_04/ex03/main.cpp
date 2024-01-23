@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:49 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/19 18:06:56 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:07:19 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
+	//src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
@@ -28,10 +28,12 @@ int main()
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;
+	AMateria* tmp2;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp2);
+
 
 	ICharacter* bob = new Character("bob");
 

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:39:20 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/19 18:05:17 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:06:33 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void MateriaSource::learnMateria(AMateria *materia)
 		}
 	}
 	std::cout << "MateriaSource is full" << std::endl;
+	delete materia;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)

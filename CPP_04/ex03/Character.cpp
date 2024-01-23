@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:57:13 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/19 18:07:48 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:02:54 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void Character::equip(AMateria *m)
 			this->_inventory[index] = m;
 			return;
 		}
+		else if (m == this->_inventory[index])
+			return;
 	}
 	std::cout << "Inventory full" << std::endl;
 }
