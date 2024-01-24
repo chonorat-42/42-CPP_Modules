@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:00:58 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/16 18:32:13 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/24 01:12:44 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		void getInfo()const;
 
 	protected:
-		std::string	name;
-		int			hitPoints;
-		int			energyPoints;
-		int			attackDamage;
-		int			maxHitPoints;
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
+		int			_maxHitPoints;
 };
 
 #endif //CLAPTRAP_HPP

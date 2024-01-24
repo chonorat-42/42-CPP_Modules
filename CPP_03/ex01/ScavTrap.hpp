@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:37:14 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/16 18:28:09 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/24 01:07:00 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		void attack(const std::string& target);
 		void guardGate();
+		void getInfo()const;
 };
 
 #endif //SCAVTRAP_HPP
