@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:57:13 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/23 18:02:54 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:15:03 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ void Character::equip(AMateria *m)
 {
 	for (int index = 0; index < 4; index++)
 	{
+		if (!m || m == this->_inventory[index])
+			return;
 		if (!this->_inventory[index])
 		{
 			this->_inventory[index] = m;
 			return;
 		}
-		else if (m == this->_inventory[index])
-			return;
 	}
 	std::cout << "Inventory full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (this->_inventory[idx])
+	if ((idx >= 0 && idx <= 3) && this->_inventory[idx])
 		this->_inventory[idx] = NULL;
 	else
 		std::cout << "No Materia to unequip" << std::endl;
@@ -85,7 +85,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx < 4 && this->_inventory[idx])
+	if ((idx >= 0 && idx <= 3) && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else
 		std::cout << "No Materia found" << std::endl;

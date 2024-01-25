@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:39:20 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/23 18:06:33 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:40:18 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ MateriaSource::~MateriaSource()
 	for (int index = 0; index < 4; index++)
 	{
 		if (this->_stock[index] != NULL)
+		{
 			delete this->_stock[index];
+			this->_stock[index] = NULL;
+		}
 	}
 }
 

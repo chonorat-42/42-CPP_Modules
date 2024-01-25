@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   MateriaList.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 16:05:09 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/24 17:38:25 by chonorat         ###   ########.fr       */
+/*   Created: 2024/01/25 12:20:37 by chonorat          #+#    #+#             */
+/*   Updated: 2024/01/25 13:16:00 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#pragma once
 
-Ice::Ice() : AMateria("ice") {}
+#include "AMateria.hpp"
 
-Ice::Ice(const Ice &other) : AMateria(other) {}
-
-Ice &Ice::operator=(const Ice &other) {(void)other; return (*this);}
-
-Ice::~Ice() {}
-
-void Ice::use(ICharacter& target)
+struct List
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-}
+	AMateria *materia;
+	List *prev;
+	List *next;
+};
 
-AMateria *Ice::clone()const
+class MateriaList
 {
-	return (new Ice(*this));
-}
+	public:
+		MateriaList();
+		MateriaList(const MateriaList &other);
+		MateriaList &operator=(const MateriaList &other);
+		~MateriaList();
+		void addMateria(AMateria *materia);
+
+	private:
+		List *_list;
+};
