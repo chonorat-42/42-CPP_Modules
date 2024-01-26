@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/26 12:30:03 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/26 15:24:14 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = Bureaucrat
+NAME = Form
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = @rm -rf
