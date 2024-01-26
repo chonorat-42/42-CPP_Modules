@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 12:20:54 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:08:09 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void Bureaucrat::incrementGrade()
 	}
 	catch (GradeTooHighException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 }
 
@@ -77,7 +77,7 @@ void Bureaucrat::decrementGrade()
 	}
 	catch (GradeTooLowException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 }
 
