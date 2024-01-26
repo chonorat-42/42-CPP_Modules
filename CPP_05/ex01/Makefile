@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/26 15:24:14 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/26 19:29:48 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = Form
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo

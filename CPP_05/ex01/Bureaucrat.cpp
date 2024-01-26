@@ -27,12 +27,12 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name)
 	}
 	catch (GradeTooLowException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << exception.what() << std::endl;
 		this->_grade = 150;
 	}
 	catch (GradeTooHighException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << exception.what() << std::endl;
 		this->_grade = 1;
 	}
 }

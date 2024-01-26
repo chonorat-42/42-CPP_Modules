@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 15:17:49 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:48:01 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 Form::Form() : _name("default"), _gradeToSign(150), _gradeToExecute(150), _isSigned(false) {}
 
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute) :
-	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
+	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+{
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw Form::GradeTooLowException();
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw GradeTooHighException();
+}
 
 Form::Form(const Form &other) : _name(other._name), _gradeToSign(other._gradeToSign),
 	_gradeToExecute(other._gradeToExecute), _isSigned(other._isSigned) {}
 
 Form &Form::operator=(const Form &other)
 {
-	this->_isSigned = other._isSigned;
+	(void)other;
 	return (*this);
 }
 
@@ -68,4 +74,9 @@ std::ostream &operator<<(std::ostream &os, const Form &other)
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("grade is too low");
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("grade is too high");
 }
