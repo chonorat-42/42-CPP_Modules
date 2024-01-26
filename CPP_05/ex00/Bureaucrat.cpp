@@ -6,15 +6,34 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/23 17:30:53 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:20:54 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {}
+
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name)
 {
-	this->_grade = grade;
+	try
+	{
+		if (grade > 150)
+			throw GradeTooLowException();
+		if (grade < 1)
+			throw GradeTooHighException();
+		this->_grade = grade;
+	}
+	catch (GradeTooLowException &exception)
+	{
+		std::cerr << exception.what() << std::endl;
+		this->_grade = 150;
+	}
+	catch (GradeTooHighException &exception)
+	{
+		std::cerr << exception.what() << std::endl;
+		this->_grade = 1;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {*this = other;}
@@ -43,7 +62,7 @@ void Bureaucrat::incrementGrade()
 	}
 	catch (GradeTooHighException &exception)
 	{
-		exception.what();
+		std::cerr << exception.what() << std::endl;
 	}
 }
 
@@ -58,23 +77,23 @@ void Bureaucrat::decrementGrade()
 	}
 	catch (GradeTooLowException &exception)
 	{
-		exception.what();
+		std::cerr << exception.what() << std::endl;
 	}
 }
 
 
-const char *Bureaucrat::GradeTooHighException::what() const noexcept
+const char *Bureaucrat::GradeTooHighException::what()const throw()
 {
 	return ("Error: 'Bureaucrat grade too high'");
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const noexcept
+const char *Bureaucrat::GradeTooLowException::what()const throw()
 {
 	return ("Error: 'Bureaucrat grade too low'");
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &other)
+std::ostream &operator<<(std::ostream& os, const Bureaucrat& other)
 {
-	out << other.getName() << ", bureaucrat grade " << other.getGrade() << '.' << std::endl;
-	return (out);
+	os << other.getName() << ", bureaucrat grade " << other.getGrade() << '.';
+	return (os);
 }

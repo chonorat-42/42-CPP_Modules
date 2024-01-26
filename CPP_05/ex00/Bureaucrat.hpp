@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:56:42 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/23 17:06:45 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:21:11 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class Bureaucrat
 {
 	public:
+		Bureaucrat();
 		explicit Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat &operator=(const Bureaucrat& other);
@@ -36,13 +37,13 @@ class Bureaucrat
 	class GradeTooHighException : std::exception
 	{
 		public:
-		const char *what()const noexcept;
+			const char *what()const throw();
 	};
 
 	class GradeTooLowException : std::exception
 	{
 		public:
-		const char *what()const noexcept;
+			const char *what()const throw();
 	};
 };
 
