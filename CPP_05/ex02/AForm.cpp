@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 18:22:52 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:53:32 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,13 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (!this->getIsSigned())
 	{
-		try
-		{
 			if (bureaucrat.getGrade() <= this->getGradeToSign())
 			{
 				this->_isSigned = true;
 				std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
 			}
 			else
-				throw GradeTooLowException();
-		}
-		catch (GradeTooLowException& exception)
-		{
-			std::cout << bureaucrat.getName() << " couldn't sign " << this->getName() << " because "
-				<< exception.what() << std::endl;
-		}
+				throw Bureaucrat::GradeTooLowException();
 	}
 }
 
@@ -63,11 +55,6 @@ std::ostream &operator<<(std::ostream &os, const AForm &other)
 	os << other.getName() << " form, grade to sign: " << other.getGradeToSign() << ", grade to execute: ";
 	os << other.getGradeToExecute() << ", is signed: " << other.getIsSigned();
 	return (os);
-}
-
-const char *AForm::GradeTooLowException::what() const throw()
-{
-	return ("grade is too low");
 }
 
 const char *AForm::FormNotSigned::what() const throw()

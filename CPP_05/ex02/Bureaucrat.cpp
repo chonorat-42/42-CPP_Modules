@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 17:24:53 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:51:49 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,25 @@ void Bureaucrat::decrementGrade()
 
 const char *Bureaucrat::GradeTooHighException::what()const throw()
 {
-	return ("Error: 'Bureaucrat grade too high'");
+	return ("bureaucrat grade is too high");
 }
 
 const char *Bureaucrat::GradeTooLowException::what()const throw()
 {
-	return ("Error: 'Bureaucrat grade too low'");
+	return ("bureaucrat grade is too low");
 }
 
 void Bureaucrat::signForm(AForm& form)
 {
-	form.beSigned(*this);
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (GradeTooLowException& exception)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because "
+			<< exception.what() << std::endl;
+	}
 }
 
 

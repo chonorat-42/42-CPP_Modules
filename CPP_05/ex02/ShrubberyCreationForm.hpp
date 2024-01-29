@@ -6,13 +6,14 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:40:09 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 19:59:56 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:49:35 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
+#include <fstream>
 
 #define TREE "       ###\n      #o###\n    #####o###\n   #o##|#/###\n    ###|/#o#\n     # }|{  #\n       }|{\n"
 

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 17:17:20 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:52:57 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,7 @@ class AForm
 		void beSigned(Bureaucrat &bureaucrat);
 		virtual void execute(const Bureaucrat& executor)const = 0;
 
-	class GradeTooLowException : std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
-
-	class FormNotSigned : std::exception
+	class FormNotSigned : public std::exception
 	{
 		public:
 			const char *what()const throw();

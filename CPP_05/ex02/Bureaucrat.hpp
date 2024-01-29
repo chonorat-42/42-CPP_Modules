@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:56:42 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 15:35:18 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:54:35 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,22 @@ class Bureaucrat
 		void decrementGrade();
 		void signForm(AForm& form);
 
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char *what()const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char *what()const throw();
+	};
+
 	private:
 		const std::string _name;
 		int _grade;
 
-	class GradeTooHighException : std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
-
-	class GradeTooLowException : std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& other);

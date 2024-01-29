@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/01/26 15:39:43 by chonorat         ###   ########.fr        #
+#    Updated: 2024/01/29 18:48:04 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,19 @@ _BOLD = \033[1m
 
 NAME = Bureaucrat
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
 HEADER = Bureaucrat.hpp\
 		AForm.hpp\
-		ShrubberyCreationForm.hpp
+		ShrubberyCreationForm.hpp\
+		RobotomyRequestForm.hpp
 FILES = main\
 		Bureaucrat\
 		AForm\
-		ShrubberyCreationForm
+		ShrubberyCreationForm\
+		RobotomyRequestForm
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 
 $(NAME): $(OBJS)
@@ -48,12 +50,12 @@ all: $(NAME)
 
 clean:
 	$(PRINT) "\n${_BOLD}Cleaning Objects...${_END}"
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) *_shrubbery
 	$(PRINT) "${_BOLD}${_GREEN}Objects cleaned.\a${_END}"
 
 fclean:
 	$(PRINT) "\n${_RED}Cleaning Objects...${_END}"
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) *_shrubbery
 	$(PRINT) "${_RED}Deleting Objects directory...${_END}"
 	$(RM) Objects
 	$(PRINT) "${_RED}Deleting $(NAME)...${_END}"
