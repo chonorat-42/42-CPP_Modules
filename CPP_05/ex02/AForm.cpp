@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/30 16:14:05 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:01:41 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 std::ostream &operator<<(std::ostream &os, const AForm &other)
 {
 	os << other.getName() << " form, grade to sign: " << other.getGradeToSign() << ", grade to execute: ";
-	os << other.getGradeToExecute() << ", is signed: " << other.getIsSigned();
+	os << other.getGradeToExecute() << ", is signed: " << other.getIsSigned() << std::endl;
 	return (os);
 }
 
