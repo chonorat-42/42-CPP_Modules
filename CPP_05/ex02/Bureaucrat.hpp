@@ -6,15 +6,16 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:56:42 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 14:54:35 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:59:45 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string>
-#include <stdexcept>
+# include <iostream>
+# include <string>
+# include <stdexcept>
 
 class AForm;
 
@@ -31,18 +32,17 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(AForm& form);
-
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
+		void executeForm(const AForm& form);
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
 
 	private:
 		const std::string _name;
@@ -51,3 +51,5 @@ class Bureaucrat
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& other);
+
+#endif

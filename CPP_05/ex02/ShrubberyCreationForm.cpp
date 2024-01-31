@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:39:55 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 17:11:50 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:55:03 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,6 @@ void ShrubberyCreationForm::_writeTree()const
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor)const
 {
-	try
-	{
-		if (!this->getIsSigned())
-			throw FormNotSigned();
-		if (executor.getGrade() >= this->getGradeToExecute())
-			throw Bureaucrat::GradeTooLowException();
-		this->_writeTree();
-	}
-	catch (std::exception& exception)
-	{
-		std::cout << executor.getName() << " cannot execute " << this->getName() << " because "
-			<< exception.what() << std::endl;
-	}
+	checkPrerequisites(executor);
+	this->_writeTree();
 }

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 14:53:32 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:14:05 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 			else
 				throw Bureaucrat::GradeTooLowException();
 	}
+	else
+		throw FormAlreadySigned();
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &other)
@@ -60,4 +62,17 @@ std::ostream &operator<<(std::ostream &os, const AForm &other)
 const char *AForm::FormNotSigned::what() const throw()
 {
 	return ("form is not signed");
+}
+
+const char *AForm::FormAlreadySigned::what() const throw()
+{
+	return ("form is already signed");
+}
+
+void AForm::checkPrerequisites(const Bureaucrat &executor)const
+{
+	if (!this->getIsSigned())
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw Bureaucrat::GradeTooLowException();
 }

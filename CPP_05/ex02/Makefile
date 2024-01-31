@@ -28,12 +28,14 @@ PRINT = @echo
 HEADER = Bureaucrat.hpp\
 		AForm.hpp\
 		ShrubberyCreationForm.hpp\
-		RobotomyRequestForm.hpp
+		RobotomyRequestForm.hpp\
+		PresidentialPardonForm.hpp
 FILES = main\
 		Bureaucrat\
 		AForm\
 		ShrubberyCreationForm\
-		RobotomyRequestForm
+		RobotomyRequestForm\
+		PresidentialPardonForm
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 
 $(NAME): $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 14:52:57 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:53:23 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ class AForm
 		void beSigned(Bureaucrat &bureaucrat);
 		virtual void execute(const Bureaucrat& executor)const = 0;
 
-	class FormNotSigned : public std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
+	protected:
+		class FormNotSigned : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
+		class FormAlreadySigned : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
+		void checkPrerequisites(const Bureaucrat& executor)const;
 
 	private:
 		const std::string _name;

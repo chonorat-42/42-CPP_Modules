@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:07:46 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 18:55:24 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:57:08 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,27 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Rob
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target) {}
 
+RobotomyRequestForm::~RobotomyRequestForm() {}
+
+
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
 	this->_target = other._target;
 	return (*this);
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor)const
+void RobotomyRequestForm::randomizeResult()const
 {
-	try
-	{
-		if (!this->getIsSigned())
-			throw FormNotSigned();
-		if (executor.getGrade() > this->getGradeToExecute())
-			throw Bureaucrat::GradeTooLowException();
-		std::cout << _randomizeResult() << std::endl;
-	}
-	catch (std::exception& exception)
-	{
-		std::cout << executor.getName() << " cannot execute " << this->getName() << " because "
-			<< exception.what() << std::endl;
-	}
+	srand(std::time(0));
+	std::cout << "BRRRRrrrrrrrrrrrr..." << std::endl;
+	if (rand() % 2)
+		std::cout << this->_target << " has been robotomized successfully !" << std::endl;
+	else
+		std::cout << "Attempt to robotomize " << this->_target << " failed." << std::endl;
 }
 
-int RobotomyRequestForm::_randomizeResult()const
+void RobotomyRequestForm::execute(const Bureaucrat &executor)const
 {
-	return (rand() % 2);
+	checkPrerequisites(executor);
+	this->randomizeResult();
 }

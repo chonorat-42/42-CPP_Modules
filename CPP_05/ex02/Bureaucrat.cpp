@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/29 14:51:49 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:17:18 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name)
 	}
 	catch (GradeTooLowException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << "Grade set to 150 because " << exception.what() << std::endl;
 		this->_grade = 150;
 	}
 	catch (GradeTooHighException &exception)
 	{
-		std::cerr << exception.what() << std::endl;
+		std::cout << "Grade set to 1 because " << exception.what() << std::endl;
 		this->_grade = 1;
 	}
 }
@@ -99,16 +99,29 @@ void Bureaucrat::signForm(AForm& form)
 	{
 		form.beSigned(*this);
 	}
-	catch (GradeTooLowException& exception)
+	catch (std::exception& exception)
 	{
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because "
 			<< exception.what() << std::endl;
 	}
 }
 
-
 std::ostream &operator<<(std::ostream& os, const Bureaucrat& other)
 {
 	os << other.getName() << ", bureaucrat grade " << other.getGrade() << '.';
 	return (os);
+}
+
+void Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception& exception)
+	{
+		std::cout << this->getName() << " cannot execute " << form.getName() << " because "
+			<< exception.what() << std::endl;
+	}
 }
