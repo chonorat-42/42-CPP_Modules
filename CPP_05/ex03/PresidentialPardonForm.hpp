@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 15:04:03 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/01 15:33:37 by chonorat         ###   ########.fr       */
+/*   Created: 2024/01/30 16:20:36 by chonorat          #+#    #+#             */
+/*   Updated: 2024/02/01 15:32:34 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
-# include <cstdlib>
-# include <ctime>
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public:
-		explicit RobotomyRequestForm(const std::string& target);
-		~RobotomyRequestForm();
+		explicit PresidentialPardonForm(const std::string& target);
+		~PresidentialPardonForm();
 		void execute(const Bureaucrat &executor)const;
 
 	private:
 		std::string _target;
-		void randomizeResult()const;
-		RobotomyRequestForm();
-		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-		RobotomyRequestForm(const RobotomyRequestForm& other);
+		PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 };
 
 #endif

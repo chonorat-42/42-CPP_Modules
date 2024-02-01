@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:20:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/31 14:58:23 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:33:51 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class PresidentialPardonForm : public AForm
 {
 	public:
 		explicit PresidentialPardonForm(const std::string& target);
-		PresidentialPardonForm(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
 		void execute(const Bureaucrat &executor)const;
 
@@ -27,6 +26,7 @@ class PresidentialPardonForm : public AForm
 		std::string _target;
 		PresidentialPardonForm();
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+		PresidentialPardonForm(const PresidentialPardonForm& other);
 };
 
 #endif

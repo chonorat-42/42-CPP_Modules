@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:36 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 15:08:09 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:58:50 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name)
 	{
 		std::cerr << exception.what() << std::endl;
 		this->_grade = 150;
+		std::cout << "Grade set to 150" << std::endl;
 	}
 	catch (GradeTooHighException &exception)
 	{
 		std::cerr << exception.what() << std::endl;
 		this->_grade = 1;
+		std::cout << "Grade set to 1" << std::endl;
 	}
 }
 

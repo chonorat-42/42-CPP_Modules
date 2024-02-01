@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/01 15:52:43 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:31:00 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,40 @@
 
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	public:
-		Form(const std::string& name, int gradeToSign, int gradeToExecute);
-		~Form();
+		AForm();
+		AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+		virtual ~AForm();
 		std::string getName()const;
 		int getGradeToSign()const;
 		int getGradeToExecute()const;
 		bool getIsSigned()const;
 		void beSigned(Bureaucrat &bureaucrat);
-		class GradeTooLowException : public std::exception
+		virtual void execute(const Bureaucrat& executor)const = 0;
+
+	protected:
+		class FormNotSigned : public std::exception
 		{
 			public:
 				const char *what()const throw();
 		};
-		class GradeTooHighException : public std::exception
+		class FormAlreadySigned : public std::exception
 		{
 			public:
 				const char *what()const throw();
 		};
+		void checkPrerequisites(const Bureaucrat& executor)const;
+	    AForm(const AForm &other);
+	    AForm &operator=(const AForm &other);
 
 	private:
 		const std::string _name;
 		const int _gradeToSign;
 		const int _gradeToExecute;
 		bool _isSigned;
-		Form();
-		Form(const Form &other);
-		Form &operator=(const Form &other);
+
 };
 
-std::ostream& operator<<(std::ostream &os, const Form& other);
+std::ostream& operator<<(std::ostream &os, const AForm& other);

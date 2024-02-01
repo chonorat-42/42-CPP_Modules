@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = Bureaucrat
+NAME = Form
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 RM = @rm -rf

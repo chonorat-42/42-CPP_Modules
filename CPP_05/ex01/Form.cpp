@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/26 19:48:01 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:51:56 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 Form::Form() : _name("default"), _gradeToSign(150), _gradeToExecute(150), _isSigned(false) {}
 
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute) :
-	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false)
 {
 	if (gradeToSign > 150 || gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
 }

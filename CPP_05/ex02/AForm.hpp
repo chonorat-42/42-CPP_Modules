@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:29:08 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/31 16:53:23 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:30:30 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ class AForm
 	public:
 		AForm();
 		AForm(const std::string& name, int gradeToSign, int gradeToExecute);
-		AForm(const AForm &other);
-		AForm &operator=(const AForm &other);
 		virtual ~AForm();
 		std::string getName()const;
 		int getGradeToSign()const;
@@ -41,6 +39,8 @@ class AForm
 				const char *what()const throw();
 		};
 		void checkPrerequisites(const Bureaucrat& executor)const;
+		AForm &operator=(const AForm &other);
+		AForm(const AForm &other);
 
 	private:
 		const std::string _name;

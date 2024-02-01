@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:56:42 by chonorat          #+#    #+#             */
-/*   Updated: 2024/01/25 15:21:11 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:38:10 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,20 @@ class Bureaucrat
 		int getGrade()const;
 		void incrementGrade();
 		void decrementGrade();
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what()const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+			const char *what()const throw();
+		};
 
 	private:
 		const std::string _name;
 		int _grade;
-
-	class GradeTooHighException : std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
-
-	class GradeTooLowException : std::exception
-	{
-		public:
-			const char *what()const throw();
-	};
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& other);
