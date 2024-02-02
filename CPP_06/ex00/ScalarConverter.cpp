@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:27 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/02 17:50:36 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:53:52 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static bool checkLiteral(std::string& literal)
 	std::cout << d << std::endl;
 	std::cout << endptr << std::endl;
 	std::cout << d << std::endl;
-	if (endptr && strlen(endptr) > 1 && endptr[0] != 'f')
+	if (endptr && (strlen(endptr) > 1 || endptr[0] != 'f'))
 		return (false);
 	return (true);
 }
