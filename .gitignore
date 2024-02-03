@@ -1,16 +1,12 @@
 #Objects
 *.o
 
+#Dependencies
+*.d
+
 #Executables
-megaphone
-phonebook
-zombie
-horde
-human
-replace
-harl
-canon
-ClapTrap
+Form
+Bureaucrat
 
 #DS_STORE
 .DS_Store
