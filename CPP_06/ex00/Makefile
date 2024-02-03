@@ -26,7 +26,8 @@ RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
 FILES = main\
-		ScalarConverter
+		ScalarConverter\
+		TypeData
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 DPDS = $(addsuffix .d, $(addprefix Objects/, $(FILES)))
 
@@ -44,12 +45,10 @@ all: $(NAME)
 
 clean:
 	$(PRINT) "\n${_BOLD}Cleaning Objects...${_END}"
-	$(RM) $(OBJS) *_shrubbery
 	$(PRINT) "${_BOLD}${_GREEN}Objects cleaned.\a${_END}"
 
 fclean:
 	$(PRINT) "\n${_RED}Cleaning Objects...${_END}"
-	$(RM) $(OBJS) *_shrubbery
 	$(PRINT) "${_RED}Deleting Objects directory...${_END}"
 	$(RM) Objects
 	$(PRINT) "${_RED}Deleting $(NAME)...${_END}"
