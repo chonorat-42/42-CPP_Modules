@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:10:16 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/03 19:02:33 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/03 23:44:06 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,10 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <string>
-# include <exception>
-# include <cstdlib>
-# include <cstring>
 # include <cmath>
+# include <climits>
+# include <cstring>
 # include "TypeData.hpp"
-
-enum dataType
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE
-};
 
 class ScalarConverter
 {

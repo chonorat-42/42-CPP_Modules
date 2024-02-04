@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:27 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/03 19:08:10 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:49:31 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,13 @@ static void printResult(TypeData& data)
 	std::cout << "float: " << data.getFloating();
 	if (data.getFloating() - static_cast<int>(data.getFloating()) == 0
 			&& (data.getDoublePrecision() < 1000000 && data.getDoublePrecision() > -1000000))
-		std::cout << ".0f" << std::endl;
-	else
-		std::cout << "f" << std::endl;
+		std::cout << ".0";
+	std::cout << "f" << std::endl;
 	std::cout << "double: " << data.getDoublePrecision();
 	if (data.getDoublePrecision() - static_cast<int>(data.getDoublePrecision()) == 0
 			&& (data.getDoublePrecision() < 1000000 && data.getDoublePrecision() > -1000000))
-		std::cout << ".0" << std::endl;
-	else
-		std::cout << std::endl;
+		std::cout << ".0";
+	std::cout << std::endl;
 }
 
 static void printAsChar(const char character)
