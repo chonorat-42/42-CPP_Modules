@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/02/05 12:59:59 by chonorat         ###   ########.fr        #
+#    Updated: 2024/02/06 16:42:03 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ _RED = \033[31m
 _END = \033[0m
 _BOLD = \033[1m
 
-NAME = Iter
+NAME = Array
 CC = @c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MD
 RM = @rm -rf

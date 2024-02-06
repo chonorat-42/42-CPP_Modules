@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:17:30 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/05 18:32:12 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:33:41 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Array
 		Array(const Array& other);
 		Array& operator=(const Array& other);
 		T& operator[](size_t index);
+		T operator[](size_t index)const;
 		~Array();
-		class outOfBounds : std::exception
+		size_t size()const;
+		class outOfBounds : public std::exception
 		{
 			public:
 				const char* what()const throw();
@@ -33,18 +35,21 @@ class Array
 
 	private:
 		T* _array;
+		size_t _size;
 };
 
 template<typename T>
 Array<T>::Array()
 {
 	this->_array = new T[0];
+	this->_size = 0;
 }
 
 template<typename T>
 Array<T>::Array(const unsigned int n)
 {
 	this->_array = new T[n];
+	this->_size = n;
 	for (size_t index = 0; index < n; index++)
 		this->_array[index] = T();
 }
@@ -52,8 +57,9 @@ Array<T>::Array(const unsigned int n)
 template<typename T>
 Array<T>::Array(const Array &other)
 {
-	this->_array = new T[other._array];
-	for (size_t index = 0; index < other._array; index++)
+	this->_size = other._size;
+	this->_array = new T[other._size];
+	for (size_t index = 0; index < other._size; index++)
 		this->_array[index] = other._array[index];
 }
 
@@ -63,8 +69,9 @@ Array<T> &Array<T>::operator=(const Array &other)
 	if (this != &other)
 	{
 		delete[] this->_array;
-		this->_array = new T[other._array];
-		for (size_t index = 0; index < other._array; index++)
+		this->_size = other._size;
+		this->_array = new T[other._size];
+		for (size_t index = 0; index < other._size; index++)
 			this->_array[index] = other._array[index];
 	}
 	return (*this);
@@ -79,16 +86,23 @@ Array<T>::~Array()
 template<typename T>
 T &Array<T>::operator[](size_t index)
 {
-	try
-	{
-		if (index > this->_array)
-			throw outOfBounds();
-		return (this->_array[index]);
-	}
-	catch (outOfBounds &exception)
-	{
-		std::cout << exception.what() << std::endl;
-	}
+	if (index >= this->_size)
+		throw outOfBounds();
+	return (this->_array[index]);
+}
+
+template<typename T>
+T Array<T>::operator[](size_t index)const
+{
+	if (index >= this->_size)
+		throw outOfBounds();
+	return (this->_array[index]);
+}
+
+template<typename T>
+size_t Array<T>::size()const
+{
+	return (this->_size);
 }
 
 template<typename T>
