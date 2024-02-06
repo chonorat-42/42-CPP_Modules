@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:38 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/06 20:00:47 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/07 00:14:24 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,13 @@ void Span::addNumber(int integer)
 		this->list.push_back(integer);
 		this->elementCount++;
 	}
+	else
+		throw SpanException();
 }
 
+
+
+const char *Span::SpanException::what() const throw()
+{
+	return ("Error: Element list full, cannot add new number.");
+}

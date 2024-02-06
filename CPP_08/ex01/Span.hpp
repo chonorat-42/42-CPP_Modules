@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:49 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/06 19:59:04 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/07 00:11:55 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ class Span
 		void addNumber(int integer);
 		size_t shortestSpan();
 		size_t longestSpan();
+		class SpanException : public std::exception
+		{
+			public:
+				virtual const char* what()const throw();
+		};
 
 	private:
 		size_t elementCount;
@@ -32,7 +37,5 @@ class Span
 		std::vector<int> list;
 		Span();
 };
-
-
 
 #endif //SPAN_HPP
