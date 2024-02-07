@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:38 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/07 00:14:24 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:57:36 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Span::~Span()
 	this->list.clear();
 }
 
-void Span::addNumber(int integer)
+void Span::addNumber(const int integer)
 {
 	if (this->elementCount < this->listSize)
 	{
@@ -56,9 +56,61 @@ void Span::addNumber(int integer)
 		throw SpanException();
 }
 
+void Span::addNumber(const std::vector<int>::iterator begin, const std::vector<int>::iterator end)
+{
+	if (this->elementCount + std::distance(begin, end) <= this->listSize)
+	{
+		this->list.insert(this->list.end(), begin, end);
+		this->elementCount += std::distance(begin, end);
+	}
+	else
+		throw SpanException();
+}
 
 
-const char *Span::SpanException::what() const throw()
+size_t Span::longestSpan()
+{
+	if (this->elementCount > 1)
+	{
+		std::sort(this->list.begin(), this->list.end());
+		return (*(--this->list.end()) - *this->list.begin());
+	}
+	throw InvalidSpan();
+}
+
+size_t Span::shortestSpan()
+{
+	size_t span = LONG_LONG_MAX;
+	if (this->elementCount > 1)
+	{
+		long first = LONG_MIN, second = LONG_MIN;
+		std::sort(this->list.begin(), this->list.end());
+		for (std::vector<int>::iterator it = this->list.begin(); it != this->list.end(); ++it)
+		{
+			if (first == LONG_MIN)
+			{
+				first = *it;
+				continue;
+			}
+			second = *it;
+			if ((second - first) < static_cast<long>(span))
+				span = second - first;
+			first = second;
+		}
+	}
+	else
+		throw InvalidSpan();
+	return (span);
+}
+
+
+const char *Span::SpanException::what()const throw()
 {
 	return ("Error: Element list full, cannot add new number.");
 }
+
+const char *Span::InvalidSpan::what()const throw()
+{
+	return ("Error: Cannot get span.");
+}
+

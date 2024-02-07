@@ -6,7 +6,7 @@
 #    By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:36:49 by chonorat          #+#    #+#              #
-#    Updated: 2024/02/06 18:35:27 by chonorat         ###   ########.fr        #
+#    Updated: 2024/02/07 16:02:59 by chonorat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = span
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MD
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MD -g3
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo
