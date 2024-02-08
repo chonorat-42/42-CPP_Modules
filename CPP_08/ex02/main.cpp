@@ -6,12 +6,13 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:04:27 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/08 15:43:52 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:56:41 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
+#include <list>
 
 int main()
 {
@@ -50,6 +51,46 @@ int main()
 		std::cout << "*it = " << *it << std::endl;
 		++it;
 	}
+
+	std::cout << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::list<int>	list;
+	std::cout << "list.push_back(5)" << std::endl;
+	list.push_back(5);
+	std::cout << "list.push_back(17)" << std::endl;
+	list.push_back(17);
+	std::cout << std::endl;
+
+	std::cout << "list.back(): " << list.back() << std::endl;
+
+	std::cout << "list.pop_back()" << std::endl << std::endl;
+	list.pop_back();
+
+	std::cout << "list.size(): " << list.size() << std::endl << std::endl;
+
+	std::cout << "list.push_back(3)" << std::endl;
+	list.push_back(3);
+	std::cout << "list.push_back(5)" << std::endl;
+	list.push_back(5);
+	std::cout << "list.push_back(737)" << std::endl;
+	list.push_back(737);
+	std::cout << "list.push_back(0)" << std::endl;
+	list.push_back(0);
+
+	std::list<int>::iterator it2 = list.begin();
+	std::list<int>::iterator ite2 = list.end();
+
+	++it2;
+	--it2;
+	std::cout << std::endl;
+	while (it2 != ite2)
+	{
+		std::cout << "*it = " << *it2 << std::endl;
+		++it2;
+	}
+	std::cout << std::endl;
+	std::cout << "--------------------------------" << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "std::stack<int> s(mstack)" << std::endl;
