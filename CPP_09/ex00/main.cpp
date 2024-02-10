@@ -6,30 +6,21 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:23:43 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/10 12:33:09 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/10 15:48:31 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-bool validFile(const std::string& file)
-{
-	if (!file.empty())
-	{
-		if (file.find(".txt") != std::string::npos && file[0] != '.')
-			return (true);
-	}
-	return (false);
-}
-
 int main(const int argc, char *argv[])
 {
-	if (argc == 2 && validFile(argv[1]))
+	if (argc == 2)
 	{
 		try
 		{
 			BitcoinExchange data;
 			data.storeCSVData();
+			data.convertValuesFromFile(argv[1]);
 		}
 		catch (std::exception& exception)
 		{
@@ -39,7 +30,7 @@ int main(const int argc, char *argv[])
 	}
 	else
 	{
-		std::cout << "Usage: ./btc \'input.txt\'" << std::endl;
+		std::cout << "Usage: ./btc \'file_name\'" << std::endl;
 		return (1);
 	}
 	return (0);
