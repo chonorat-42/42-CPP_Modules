@@ -6,17 +6,16 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:24:54 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/09 19:20:37 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/10 12:35:18 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-#include <iostream>
-#include <map>
-#include <fstream>
-#include <cstdlib>
+# include <iostream>
+# include <map>
+# include <fstream>
 
 class BitcoinExchange
 {
@@ -30,8 +29,6 @@ class BitcoinExchange
 	private:
 		std::map<std::string, float> bitcoinData;
 		bool storeInMap(std::string& line, size_t position);
-		bool validDate(const std::string& date);
-		bool validValue(const std::string& value);
 		class CannotOpenCSV : public std::exception
 		{
 			public:
