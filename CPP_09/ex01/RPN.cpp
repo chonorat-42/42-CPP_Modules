@@ -104,11 +104,32 @@ void RPN::printResult()
 		throw ValuesLeft();
 }
 
+static std::string removeExtraSpaces(const std::string& str)
+{
+	std::string result;
+	bool lastWasSpace = false;
+	for (size_t index = 0; index < str.size(); ++index)
+	{
+		if (str[index] != ' ' && str[index] != '\t')
+		{
+			result += str[index];
+			lastWasSpace = false;
+		}
+		else if (!lastWasSpace)
+		{
+			result += ' ';
+			lastWasSpace = true;
+		}
+	}
+	return result;
+}
+
 void RPN::operateRPN(std::string input)
 {
 	if (!input.empty())
 	{
 		std::string value;
+		input = removeExtraSpaces(input);
 		std::istringstream iss(input);
 		while (std::getline(iss, value, ' '))
 		{
