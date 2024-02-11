@@ -21,7 +21,7 @@ _BOLD = \033[1m
 
 NAME = btc
 CC = @c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MD -g3
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MD
 RM = @rm -rf
 DIR = @mkdir -p
 PRINT = @echo

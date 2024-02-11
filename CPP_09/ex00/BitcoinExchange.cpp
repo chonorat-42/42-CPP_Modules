@@ -12,10 +12,7 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
-{
-	this->_CSVSeparator = '\0';
-}
+BitcoinExchange::BitcoinExchange() : _CSVSeparator(',') {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
@@ -27,6 +24,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 	if (this != &other)
 	{
 		this->_bitcoinData = other._bitcoinData;
+		this->_CSVSeparator = other._CSVSeparator;
 	}
 	return (*this);
 }
@@ -116,8 +114,6 @@ void BitcoinExchange::getCSVSeparator(std::string &line)
 			break;
 		}
 	}
-	if (!this->_CSVSeparator)
-		this->_CSVSeparator = ',';
 }
 
 bool BitcoinExchange::storeInMap(std::string& line, const size_t position)
@@ -236,7 +232,7 @@ const char *BitcoinExchange::CannotOpenFile::what() const throw()
 	return ("Error: could not open file.");
 }
 
-BitcoinExchange::BadInput::BadInput(const std::string& input) throw() : _message("Error: bad input => " + input) {}
+BitcoinExchange::BadInput::BadInput(const std::string& input) : _message("Error: bad input => " + input) {}
 
 BitcoinExchange::BadInput::~BadInput() throw() {}
 
