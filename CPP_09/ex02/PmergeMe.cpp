@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:31:17 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/14 16:35:49 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:10:16 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void PmergeMe::sortPairVector()
 std::vector< std::pair<int, int> > PmergeMe::merge(std::vector< std::pair<int, int> > left, std::vector< std::pair<int, int> > right)
 {
 	std::vector< std::pair<int, int> > result;
-
 	while (!left.empty() && !right.empty())
 	{
 		if (left.front().second <= right.front().second)
@@ -135,7 +134,14 @@ void PmergeMe::fillIntoContainer()
 	this->_vector.push_back(this->_vectorPair.front().first);
 	for (std::vector< std::pair<int, int> >::iterator it = this->_vectorPair.begin(); it != this->_vectorPair.end(); it++)
 		this->_vector.push_back(it->second);
+	int position = 0;
+	int oldPosition = 0;
+	size_t groupSize = 0;
+	for (size_t index = 0; index < this->_vector.size() - 1; index++)
+	{
+		size_t groupSize = (2 << index) - groupSize;
 
+	}
 }
 
 void PmergeMe::sortInVector(char **list)
