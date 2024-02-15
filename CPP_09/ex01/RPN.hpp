@@ -48,6 +48,11 @@ class RPN
 			public:
 				const char* what() const throw();
 		};
+		class DivisionByZero : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif //RPN_HPP

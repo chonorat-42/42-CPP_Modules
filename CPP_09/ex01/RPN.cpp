@@ -74,6 +74,8 @@ void RPN::divisor()
 		this->_stack.pop();
 		const std::ptrdiff_t nbr2 = this->_stack.top();
 		this->_stack.pop();
+		if (nbr1 == 0)
+			throw DivisionByZero();
 		this->_stack.push(nbr2 / nbr1);
 	}
 	else
@@ -166,4 +168,9 @@ const char* RPN::StackEmpty::what() const throw()
 const char* RPN::ValuesLeft::what() const throw()
 {
 	return ("Error: values left in stack");
+}
+
+const char* RPN::DivisionByZero::what() const throw()
+{
+	return ("Error: division by zero");
 }
