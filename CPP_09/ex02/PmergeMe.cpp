@@ -6,7 +6,7 @@
 /*   By: chonorat <chonorat@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:31:17 by chonorat          #+#    #+#             */
-/*   Updated: 2024/02/14 19:10:16 by chonorat         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:37:34 by chonorat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,28 +131,84 @@ std::vector< std::pair<int, int> > PmergeMe::mergeSort(std::vector<std::pair<int
 
 void PmergeMe::fillIntoContainer()
 {
+	size_t position = 2;
+	size_t oldPosition = 0;
+	size_t insertCount = 0;
+	size_t oldIndex = 0;
 	this->_vector.push_back(this->_vectorPair.front().first);
 	for (std::vector< std::pair<int, int> >::iterator it = this->_vectorPair.begin(); it != this->_vectorPair.end(); it++)
 		this->_vector.push_back(it->second);
-	int position = 0;
-	int oldPosition = 0;
-	size_t groupSize = 0;
 	for (size_t index = 0; index < this->_vector.size() - 1; index++)
 	{
-		size_t groupSize = (2 << index) - groupSize;
-
+		if (index != 0)
+			oldPosition = position;
+		position = (2 << index) - oldPosition;
+		for (size_t index_j = position + oldIndex; index_j > oldIndex; index_j--)
+		{
+			if (insertCount == this->_vectorPair.size() - 1)
+			{
+				if (this->_strayInt >= 0)
+					this->_vector.insert(std::lower_bound(this->_vector.begin(), this->_vector.end(), this->_strayInt), this->_strayInt);
+				return;
+			}
+			if (index_j > this->_vectorPair.size() - 1)
+				index_j = this->_vectorPair.size() - 1;
+			this->_vector.insert(std::upper_bound(this->_vector.begin(), this->_vector.end(), this->_vectorPair[index_j].first), this->_vectorPair[index_j].first);
+			insertCount++;
+		}
+		oldIndex += position;
 	}
+}
+
+static void initTime(clock_t &time)
+{
+	time = clock();
 }
 
 void PmergeMe::sortInVector(char **list)
 {
+	initTime(this->vectorStart);
 	storeInVector(list);
 	if (this->_vector.empty())
 		throw ListEmpty();
+	printVectorStart();
 	storeInVectorPair();
 	sortPairVector();
 	this->_vectorPair = mergeSort(this->_vectorPair);
 	fillIntoContainer();
+	printVectorResult();
+}
+
+static double getTime(clock_t start)
+{
+	return (static_cast<double>(std::clock() - start) / 1000);
+}
+
+
+void PmergeMe::printVectorStart()
+{
+	std::cout << "Before: ";
+	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); it++)
+	{
+		std::cout << *it;
+		if (it + 1 != this->_vector.end())
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+}
+
+void PmergeMe::printVectorResult()
+{
+	std::cout << "After:  ";
+	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); it++)
+	{
+		std::cout << *it;
+		if (it + 1 != this->_vector.end())
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: "
+		<< getTime(this->vectorStart) << "ms" << std::endl;
 }
 
 const char *PmergeMe::ListEmpty::what()const throw()
