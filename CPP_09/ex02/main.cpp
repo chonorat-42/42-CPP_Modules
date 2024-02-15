@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 		{
 			PmergeMe sort;
 			sort.sortInVector(argv);
+			sort.sortInDeque(argv);
 		}
 		catch (std::exception& exception)
 		{

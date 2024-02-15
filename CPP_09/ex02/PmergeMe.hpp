@@ -19,6 +19,7 @@
 # include <vector>
 # include <algorithm>
 # include <ctime>
+#include <deque>
 
 class PmergeMe
 {
@@ -26,26 +27,37 @@ class PmergeMe
 		PmergeMe();
 		~PmergeMe();
 		void sortInVector(char **list);
+		void sortInDeque(char **list);
 
 	private:
 		int _strayInt;
-		clock_t vectorStart;
+		clock_t startTime;
 		std::vector<int> _vector;
 		std::vector< std::pair<int, int> > _vectorPair;
+		std::deque<int> _deque;
+		std::deque< std::pair<int, int> > _dequePair;
 		void storeInVector(char **list);
+		void storeInDeque(char **list);
 		void storeInVectorPair();
+		void storeInDequePair();
 		void sortPairVector();
+		void sortPairDeque();
 		std::vector< std::pair<int, int> > mergeSort(std::vector< std::pair<int, int> > vectorPair);
+		std::deque< std::pair<int, int> > mergeSort(std::deque< std::pair<int, int> > dequePair);
 		std::vector< std::pair<int, int> > merge(std::vector< std::pair<int, int> > left, std::vector< std::pair<int, int> > right);
-		void fillIntoContainer();
+		std::deque< std::pair<int, int> > merge(std::deque< std::pair<int, int> > left, std::deque< std::pair<int, int> > right);
+		void fillIntoVector();
+		void fillIntoDeque();
 		void printVectorStart();
+		void printDequeStart();
 		void printVectorResult();
+		void printDequeResult();
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 		class InvalidInteger : public std::exception
 		{
 			public:
-				InvalidInteger(std::string arg);
+				InvalidInteger(const std::string& arg);
 				~InvalidInteger() throw();
 				const char *what()const throw();
 			private:
