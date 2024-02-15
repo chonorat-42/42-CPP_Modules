@@ -12,7 +12,10 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() : _CSVSeparator(',') {}
+BitcoinExchange::BitcoinExchange()
+{
+	this->_bitcoinData.clear();
+}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
@@ -21,11 +24,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 {
-	if (this != &other)
-	{
-		this->_bitcoinData = other._bitcoinData;
-		this->_CSVSeparator = other._CSVSeparator;
-	}
+	(void)other;
 	return (*this);
 }
 
@@ -53,6 +52,8 @@ static bool validDate(const std::string& date)
 		const int year = atoi(date.substr(0, 4).c_str());
 		const int month = atoi(date.substr(5, 2).c_str());
 		const int day = atoi(date.substr(8, 2).c_str());
+		if (year < 1000 || year > 9999)
+			return (false);
 		if (month < 1 || month > 12)
 			return (false);
 		if (day < 1 || day > 31)
@@ -104,26 +105,11 @@ void BitcoinExchange::validBtcAmount(const std::string& btcAmount)
 		throw BadInput(btcAmount);
 }
 
-void BitcoinExchange::getCSVSeparator(std::string &line)
-{
-	for (size_t index = 0; line[index]; index++)
-	{
-		if (line[index] == ',' || line[index] == ';' || line[index] == '|')
-		{
-			this->_CSVSeparator = line[index];
-			break;
-		}
-	}
-}
-
 bool BitcoinExchange::storeInMap(std::string& line, const size_t position)
 {
 	if (position == 0)
-	{
-		getCSVSeparator(line);
 		return (true);
-	}
-	const size_t sepPos = line.find(this->_CSVSeparator);
+	const size_t sepPos = line.find(',');
 	if (sepPos != std::string::npos)
 	{
 		const std::string date = line.substr(0, sepPos);

@@ -22,20 +22,18 @@ class BitcoinExchange
 {
 	public:
 		BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange& other);
-		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
 		void storeCSVData();
 		void convertValuesFromFile(std::string fileName);
 
 	private:
 		std::map<std::string, double> _bitcoinData;
-		char _CSVSeparator;
-		void getCSVSeparator(std::string& line);
 		bool storeInMap(std::string& line, size_t position);
 		void exchangeValue(std::string& line, size_t position);
 		void validBtcAmount(const std::string& btcAmount);
 		void printResult(const std::string& date, float btcAmount);
+		BitcoinExchange(const BitcoinExchange& other);
+		BitcoinExchange& operator=(const BitcoinExchange& other);
 		class CannotOpenCSV : public std::exception
 		{
 			public:
