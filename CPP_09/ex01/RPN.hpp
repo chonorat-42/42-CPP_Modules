@@ -6,6 +6,7 @@
 # include <sstream>
 # include <cstddef>
 # include <cstdlib>
+# include <list>
 
 class RPN
 {
@@ -15,7 +16,7 @@ class RPN
 		void operateRPN(std::string input);
 
 	private:
-		std::stack<std::ptrdiff_t> _stack;
+		std::stack<std::ptrdiff_t, std::list<std::ptrdiff_t> > _stack;
 		void operateOnStack(char character);
 		void adder();
 		void subtractor();
