@@ -19,7 +19,7 @@
 # include <vector>
 # include <algorithm>
 # include <ctime>
-#include <deque>
+# include <deque>
 
 class PmergeMe
 {
@@ -28,10 +28,14 @@ class PmergeMe
 		~PmergeMe();
 		void sortInVector(char **list);
 		void sortInDeque(char **list);
+		void printResult();
 
 	private:
 		int _strayInt;
-		clock_t startTime;
+		clock_t _vectorStart;
+		double _vectorExecTime;
+		clock_t _dequeStart;
+		double _dequeExecTime;
 		std::vector<int> _vector;
 		std::vector< std::pair<int, int> > _vectorPair;
 		std::deque<int> _deque;
@@ -48,10 +52,7 @@ class PmergeMe
 		std::deque< std::pair<int, int> > merge(std::deque< std::pair<int, int> > left, std::deque< std::pair<int, int> > right);
 		void fillIntoVector();
 		void fillIntoDeque();
-		void printVectorStart();
-		void printDequeStart();
-		void printVectorResult();
-		void printDequeResult();
+		void printStartList();
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 		class InvalidInteger : public std::exception

@@ -280,33 +280,32 @@ void PmergeMe::fillIntoDeque()
 
 void PmergeMe::sortInVector(char **list)
 {
-	this->startTime = initTime();
+	this->_vectorStart = initTime();
 	storeInVector(list);
 	if (this->_vector.empty())
 		throw ListEmpty();
-	printVectorStart();
+	printStartList();
 	storeInVectorPair();
 	sortPairVector();
 	this->_vectorPair = mergeSort(this->_vectorPair);
 	fillIntoVector();
-	printVectorResult();
+	this->_vectorExecTime = getTime(this->_vectorStart);
 }
 
 void PmergeMe::sortInDeque(char **list)
 {
-	this->startTime = initTime();
+	this->_dequeStart = initTime();
 	storeInDeque(list);
 	if (this->_deque.empty())
 		throw ListEmpty();
-	printDequeStart();
 	storeInDequePair();
 	sortPairDeque();
 	this->_dequePair = mergeSort(this->_dequePair);
 	fillIntoDeque();
-	printDequeResult();
+	this->_dequeExecTime = getTime(this->_dequeStart);
 }
 
-void PmergeMe::printVectorStart()
+void PmergeMe::printStartList()
 {
 	std::cout << "Before: ";
 	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); ++it)
@@ -318,19 +317,7 @@ void PmergeMe::printVectorStart()
 	std::cout << std::endl;
 }
 
-void PmergeMe::printDequeStart()
-{
-	std::cout << "Before: ";
-	for (std::deque<int>::iterator it = this->_deque.begin(); it != this->_deque.end(); ++it)
-	{
-		std::cout << *it;
-		if (it + 1 != this->_deque.end())
-			std::cout << " ";
-	}
-	std::cout << std::endl;
-}
-
-void PmergeMe::printVectorResult()
+void PmergeMe::printResult()
 {
 	std::cout << "After:  ";
 	for (std::vector<int>::iterator it = this->_vector.begin(); it != this->_vector.end(); ++it)
@@ -341,21 +328,9 @@ void PmergeMe::printVectorResult()
 	}
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: "
-		<< getTime(this->startTime) << "ms" << std::endl;
-}
-
-void PmergeMe::printDequeResult()
-{
-	std::cout << "After:  ";
-	for (std::deque<int>::iterator it = this->_deque.begin(); it != this->_deque.end(); ++it)
-	{
-		std::cout << *it;
-		if (it + 1 != this->_deque.end())
-			std::cout << " ";
-	}
-	std::cout << std::endl;
+		<< this->_vectorExecTime << "ms" << std::endl;
 	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque: "
-		<< getTime(this->startTime) << "ms" << std::endl;
+		<< this->_dequeExecTime << "ms" << std::endl;
 }
 
 const char *PmergeMe::ListEmpty::what()const throw()

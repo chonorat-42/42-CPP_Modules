@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 			PmergeMe sort;
 			sort.sortInVector(argv);
 			sort.sortInDeque(argv);
+			sort.printResult();
 		}
 		catch (std::exception& exception)
 		{
